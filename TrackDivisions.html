@@ -12,6 +12,29 @@
 
 	</style>
 
+
+	<script language:"javascript">
+	
+		function determineDivision() {
+		
+			document.getElementById("result").innerHTML = "Hello there!";
+		
+		
+		}
+		
+		function clearOutput(){
+		
+			document.getElementById("result").innerHTML = "";
+		
+		
+		}
+	
+	
+	</script>
+
+
+
+
 </head>
 <body>
 
@@ -21,7 +44,7 @@ Track Divisions
 
 <form>
 
-<table width = "60%" border ="1">
+<table width = "60%" border ="0">
 
 
 
@@ -34,7 +57,7 @@ Track Divisions
 	</td>
 	
 	<td>
-		<select name="birthYear">
+		<select name="birthYear" onClick="clearOutput();">
 	  		<option value="1999">1999</option>
 	  		<option value="2000">2000</option>
 	  		<option value="2001">2001</option>
@@ -55,20 +78,42 @@ Track Divisions
 	</td>
 	
 	<td>
-		<selectname="birthMonth">
+		<select name="birthMonth" onClick="clearOutput();">
 	  		<option value="1">January</option>
-	  		<option value="2">2000</option>
-	  		<option value="3">2001</option>
-	  		<option value="4">2002</option>
-	  		<option value="5">2003</option>
-	  		<option value="6">2004</option>
-	  		<option value="7">2005</option>
-	  		<option value="8">2006</option>
+	  		<option value="2">Febuary</option>
+	  		<option value="3">March</option>
+	  		<option value="4">April</option>
+	  		<option value="5">May</option>
+	  		<option value="6">June</option>
+	  		<option value="7">July</option>
+	  		<option value="8">August</option>
+	  		<option value="9">September</option>
+	  		<option value="10">October</option>
+	  		<option value="11">November</option>
+	  		<option value="12">December</option>
 		</select> 
-	</td>
+</td>
+
+<tr>
+	<td colspan="2" align="center">
+		
+		<input id="determine" type="button" value="Determine Track Division" onClick="determineDivision();" />
+	
 	</td>
 	
+</tr>
+	
+<tr>
+	<td colspan="2" align="center">
+	
+	<p id="result">
+	
+	
+	</p>
+	
+	</td>
 
+</tr>
 
 
 
