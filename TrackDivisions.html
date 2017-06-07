@@ -1,127 +1,179 @@
 
 <html>
 <head>
-	<title>TrackDivisions - Javascript Version</title>
+	<title>Track Divisions | Javascript Version</title>
 
 	<style>
 	
-	
-	body {font-family: Loma,verdana; font-size: 12pt}
-
-
-
+		body {font-family: helvetica,arial,sans-serif; font-size: 12pt}
+		
 	</style>
-
-
-	<script language:"javascript">
 	
-		function determineDivision() {
+	<script language="javascript">
 		
-			document.getElementById("result").innerHTML = "Hello there!";
+		function determineDivision()
+		{
+			
+			const SHSAAYear = 2016;
+			var age = 10;
+			var division = 0;
+			var cutOffAge;
+			var bMonth = document.getElementById("birthMonth");
+			var birthMonth = bMonth.options[bMonth.selectedIndex].value;
+			var bYear = document.getElementById("birthYear");
+			var birthYear = bYear.options[bYear.selectedIndex].value;
+			
+			cutOffAge = SHSAAYear - birthYear;
+			
+			if (birthMonth <= 8) {
 		
+				do {
+
+					age++;
+					division = age;
+										
+				} while (age != cutOffAge);
+			
+			} else {
 		
-		}
+				do {
+			
+					age++;
+					division = age - 1;
+										
+				} while (age != cutOffAge);
+			
+			}		
+			
+			switch (division) {
+				case 10: document.getElementById("result").innerHTML = "Wee Pee"; break;
+				case 11: document.getElementById("result").innerHTML = "Wee Pee"; break;
+				case 12: document.getElementById("result").innerHTML = "Pee Wee"; break;
+				case 13: document.getElementById("result").innerHTML = "Bantam"; break;
+				case 14: document.getElementById("result").innerHTML = "Midget"; break;
+				case 15: document.getElementById("result").innerHTML = "Junior"; break;
+				case 16: document.getElementById("result").innerHTML = "Senior"; break;
+				case 17: document.getElementById("result").innerHTML = "Senior"; break;
+			
+			}
+			
+		}	
 		
-		function clearOutput(){
+		function clearOutput()
+		{
 		
 			document.getElementById("result").innerHTML = "";
 		
-		
 		}
-	
-	
+		
 	</script>
-
-
-
-
+	
 </head>
+
 <body>
 
-<h2>
-Track Divisions
-</h2>
+	<h2>
+	Track Divisions
+	</h2>
 
-<form>
-
-<table width = "60%" border ="0">
-
-
-
-
-
-<tr>
-
-	<td>
-	Please select the year that the student athlete was born in:
-	</td>
+	<form>
 	
-	<td>
-		<select name="birthYear" onClick="clearOutput();">
-	  		<option value="1999">1999</option>
-	  		<option value="2000">2000</option>
-	  		<option value="2001">2001</option>
-	  		<option value="2002">2002</option>
-	  		<option value="2003">2003</option>
-	  		<option value="2004">2004</option>
-	  		<option value="2005">2005</option>
-	  		<option value="2006">2006</option>
-		</select> 
-	</td>
-	
-</tr>
-
-<tr>
-
-	<td>
-	Please select the month that the student athlete was born in:
-	</td>
-	
-	<td>
-		<select name="birthMonth" onClick="clearOutput();">
-	  		<option value="1">January</option>
-	  		<option value="2">Febuary</option>
-	  		<option value="3">March</option>
-	  		<option value="4">April</option>
-	  		<option value="5">May</option>
-	  		<option value="6">June</option>
-	  		<option value="7">July</option>
-	  		<option value="8">August</option>
-	  		<option value="9">September</option>
-	  		<option value="10">October</option>
-	  		<option value="11">November</option>
-	  		<option value="12">December</option>
-		</select> 
-</td>
-
-<tr>
-	<td colspan="2" align="center">
+		<table width ="60%" border="0">
 		
-		<input id="determine" type="button" value="Determine Track Division" onClick="determineDivision();" />
-	
-	</td>
-	
-</tr>
-	
-<tr>
-	<td colspan="2" align="center">
-	
-	<p id="result">
-	
-	
-	</p>
-	
-	</td>
-
-</tr>
-
-
-
-</table>
-
-</form>
-
-
+			<tr>
+			
+				<td>
+				Please select the year that the student athlete was born in:
+				</td>
+				
+				<td>
+				
+					<select id="birthYear" onClick="clearOutput()">
+					
+						<option value="1999" selected>1999</option>
+						<option value="2000">2000</option>
+						<option value="2001">2001</option>
+						<option value="2002">2002</option>
+						<option value="2003">2003</option>
+						<option value="2004">2004</option>
+						<option value="2005">2005</option>
+						
+					</select>
+					
+				</td>
+				
+			</tr>
+			
+			<tr>
+				
+				<td>
+				Please select the month that the student athlete was born in:
+				</td>
+				
+				<td>
+					
+					<select id="birthMonth" onClick="clearOutput()">
+					
+						<option value="1">January</option>
+						<option value="2">February</option>
+						<option value="3">March</option>
+						<option value="4">April</option>
+						<option value="5">May</option>
+						<option value="6">June</option>
+						<option value="7">July</option>
+						<option value="8">August</option>
+						<option value="9">September</option>
+						<option value="10">October</option>
+						<option value="11">November</option>
+						<option value="12">December</option>
+					
+					</select>
+					
+				</td>
+				
+			</tr>
+			
+			<tr>
+			
+				<td colspan="2" align="center">
+					
+					<input id="determine" type="button" value="Determine Track Division" onClick="determineDivision();"/>
+					
+				</td>
+				
+			</tr>
+			
+			<tr>
+			
+				<td colspan="2" align="center" id="result">
+				</td>
+				
+			</tr>
+		
+		</table>
+		
+	</form>
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
